@@ -7,17 +7,19 @@ let passwordCharacters = [];
 let passwordResult = "";
 
 function generatePassword() {
+  // password length prompt
   let passwordLength = window.prompt("Enter the desired password length.");
-   if (passwordLength <= 7 || passwordLength >= 129) {
-     alert("Please enter a number between 8 and 128.")
-     return generatePassword();
-   }
+  if (passwordLength <= 7 || passwordLength >= 129) {
+    alert("Please enter a number between 8 and 128.")
+    return generatePassword();
+  }
 
   lowercaseCharacters = false;
   uppercaseCharacters = false;
   numberCharacters = false;
   specialCharacters = false;
 
+  // choosing character types
   while (!lowercaseCharacters && !uppercaseCharacters && !numberCharacters && !specialCharacters) {
     lowercaseCharacters = confirm("Would you like to include lowercase letters?");
     uppercaseCharacters = confirm("Would you like to include uppercase letters?");
@@ -28,7 +30,8 @@ function generatePassword() {
       break;
     }
   }
-
+  
+  // adding seleted character types to a new array
   if (lowercaseCharacters) {
     passwordCharacters = passwordCharacters.concat(lowercaseLetters);
   }
@@ -45,10 +48,13 @@ function generatePassword() {
     passwordCharacters = passwordCharacters.concat(specials);
   }
 
+  // choosing characters for final password
   for (let i = 0; i < passwordLength; i++) {
     const random = Math.floor(Math.random() * passwordCharacters.length);
     passwordResult += passwordCharacters[random];
   }
+
+  // final password result to show on page
   return passwordResult;
 }
 
