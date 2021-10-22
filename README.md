@@ -1,6 +1,6 @@
 # Password Generator
 
-![Password Generator](/password-generator-screenshot.jpg)
+![Password Generator](/password-generator-screenshot.png)
 
 ## Description
 
